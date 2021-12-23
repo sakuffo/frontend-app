@@ -8,3 +8,13 @@ before_install:
 
 script:
   - docker run -e CI=true sakuffo/frontend-app npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "frontend-app"
+  env: "Frontendapp-env"
+  bucket_name: "elasticbeanstalk-us-east-1-981894193627"
+  bucket_path: "frontend-app"
+  on:
+    branch: main
