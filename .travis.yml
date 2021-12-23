@@ -5,3 +5,6 @@ services:
 
 before_install:
   - docker build -t sakuffo/frontend-app -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true sakuffo/frontend-app npm run test
